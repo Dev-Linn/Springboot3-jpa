@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -17,7 +18,8 @@ public class Payments implements Serializable {
     private Long id;  // Altere para Long para ser consistente com o tipo de ID da entidade
 
     private Instant moment;
-
+    
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "order_id")  // Adicione a chave estrangeira explicitamente
     private Order order;
